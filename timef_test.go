@@ -6,7 +6,7 @@ import (
 )
 
 func TestToFormat(t *testing.T) {
-	tests := map[string]struct {
+	var tests = map[string]struct {
 		prototype string
 		date      string
 		layout    string
@@ -15,42 +15,60 @@ func TestToFormat(t *testing.T) {
 		"date_2020-05-20_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020-05-20 00:00:00",
-			layout:    StampDateLong,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDashDateLongYearAtBegin,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
+		},
+		"date_2020/05/20_00:00:00": {
+			prototype: "2020-05-20 00:00:00",
+			date:      "2020/05/20 00:00:00",
+			layout:    StampSlashDateLongYearAtBegin,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
+		},
+		"date_2020.05.20_00:00:00": {
+			prototype: "2020-05-20 00:00:00",
+			date:      "2020.05.20 00:00:00",
+			layout:    StampDotDateLongYearAtBegin,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
+		},
+		"date_20200520_00:00:00": {
+			prototype: "2020-05-20 00:00:00",
+			date:      "20200520 00:00:00",
+			layout:    StampDateLongYearAtBegin,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 		"date_2020-05-20": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020-05-20",
-			layout:    StampDayLong,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDashDayLongYearAtBegin,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 		"date_20.05.2020": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.2020",
-			layout:    StampDotDayLongBackwards,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDotDayLongYearAtEnd,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 		"date_20.05.2020_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.2020 00:00:00",
-			layout:    StampDotDateLongBackwards,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDotDateLongYearAtEnd,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 		"date_20.05.20_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.20 00:00:00",
-			layout:    StampDotDateBackwards,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDotDateYearAtEnd,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 		"date_20.05.20": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.20",
-			layout:    StampDotDayBackwards,
-			format:    GetFormat(FormatDateLong21),
+			layout:    StampDotDayYearAtEnd,
+			format:    GetFormat(FormatDateLongYearAtBegin21),
 		},
 	}
 
-	endl := "\r\n"
+	var endl = "\r\n"
 
 	for testName, test := range tests {
 		t.Logf("Running test case %s", testName)
@@ -71,7 +89,7 @@ func TestToFormat(t *testing.T) {
 }
 
 func TestToFormatYYYYMMDD(t *testing.T) {
-	tests := map[string]struct {
+	var tests = map[string]struct {
 		prototype string
 		datas     []struct {
 			date      string
@@ -88,47 +106,47 @@ func TestToFormatYYYYMMDD(t *testing.T) {
 			}{
 				{
 					date:      "2020-05-20 00:00:00",
-					layout:    StampDateLong,
+					layout:    StampDashDateLongYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "2020-05-20",
-					layout:    StampDayLong,
+					layout:    StampDashDayLongYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "20-05-20",
-					layout:    StampDay,
+					layout:    StampDashDayYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "2020.05.20",
-					layout:    StampDotDayLong,
+					layout:    StampDotDayLongYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDay,
+					layout:    StampDotDayYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "20.05.2020 00:00:00",
-					layout:    StampDotDateLongBackwards,
+					layout:    StampDotDateLongYearAtEnd,
 					separator: '-',
 				},
 				{
 					date:      "20.05.20 00:00:00",
-					layout:    StampDotDateBackwards,
+					layout:    StampDotDateYearAtBegin,
 					separator: '-',
 				},
 				{
 					date:      "20.05.2020",
-					layout:    StampDotDayLongBackwards,
+					layout:    StampDotDayLongYearAtEnd,
 					separator: '-',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDayBackwards,
+					layout:    StampDotDayYearAtEnd,
 					separator: '-',
 				},
 			},
@@ -143,47 +161,47 @@ func TestToFormatYYYYMMDD(t *testing.T) {
 			}{
 				{
 					date:      "2020-05-20 00:00:00",
-					layout:    StampDateLong,
+					layout:    StampDashDateLongYearAtBegin,
 					separator: '/',
 				},
 				{
 					date:      "2020-05-20",
-					layout:    StampDayLong,
+					layout:    StampDashDayLongYearAtBegin,
 					separator: '/',
 				},
 				{
 					date:      "20-05-20",
-					layout:    StampDay,
+					layout:    StampDashDayYearAtBegin,
 					separator: '/',
 				},
 				{
 					date:      "2020.05.20",
-					layout:    StampDotDayLong,
+					layout:    StampDotDayLongYearAtBegin,
 					separator: '/',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDay,
+					layout:    StampDotDayYearAtBegin,
 					separator: '/',
 				},
 				{
 					date:      "20.05.2020 00:00:00",
-					layout:    StampDotDateLongBackwards,
+					layout:    StampDotDateLongYearAtEnd,
 					separator: '/',
 				},
 				{
 					date:      "20.05.20 00:00:00",
-					layout:    StampDotDateBackwards,
+					layout:    StampDotDateYearAtEnd,
 					separator: '/',
 				},
 				{
 					date:      "20.05.2020",
-					layout:    StampDotDayLongBackwards,
+					layout:    StampDotDayLongYearAtEnd,
 					separator: '/',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDayBackwards,
+					layout:    StampDotDayYearAtEnd,
 					separator: '/',
 				},
 			},
@@ -198,47 +216,47 @@ func TestToFormatYYYYMMDD(t *testing.T) {
 			}{
 				{
 					date:      "2020-05-20 00:00:00",
-					layout:    StampDateLong,
+					layout:    StampDashDateLongYearAtBegin,
 					separator: '.',
 				},
 				{
 					date:      "2020-05-20",
-					layout:    StampDayLong,
+					layout:    StampDashDayLongYearAtBegin,
 					separator: '.',
 				},
 				{
 					date:      "20-05-20",
-					layout:    StampDay,
+					layout:    StampDashDayYearAtBegin,
 					separator: '.',
 				},
 				{
 					date:      "2020.05.20",
-					layout:    StampDotDayLong,
+					layout:    StampDotDayLongYearAtBegin,
 					separator: '.',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDay,
+					layout:    StampDotDayYearAtBegin,
 					separator: '.',
 				},
 				{
 					date:      "20.05.2020 00:00:00",
-					layout:    StampDotDateLongBackwards,
+					layout:    StampDotDateLongYearAtEnd,
 					separator: '.',
 				},
 				{
 					date:      "20.05.20 00:00:00",
-					layout:    StampDotDateBackwards,
+					layout:    StampDotDateYearAtEnd,
 					separator: '.',
 				},
 				{
 					date:      "20.05.2020",
-					layout:    StampDotDayLongBackwards,
+					layout:    StampDotDayLongYearAtEnd,
 					separator: '.',
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDayBackwards,
+					layout:    StampDotDayYearAtEnd,
 					separator: '.',
 				},
 			},
@@ -253,54 +271,53 @@ func TestToFormatYYYYMMDD(t *testing.T) {
 			}{
 				{
 					date:      "2020-05-20 00:00:00",
-					layout:    StampDateLong,
+					layout:    StampDashDateLongYearAtBegin,
 					separator: 32,
 				},
 				{
 					date:      "2020-05-20",
-					layout:    StampDayLong,
+					layout:    StampDashDayLongYearAtBegin,
 					separator: 32,
 				},
 				{
 					date:      "20-05-20",
-					layout:    StampDay,
+					layout:    StampDashDayYearAtBegin,
 					separator: 32,
 				},
 				{
 					date:      "2020.05.20",
-					layout:    StampDotDayLong,
+					layout:    StampDotDayLongYearAtBegin,
 					separator: 32,
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDay,
+					layout:    StampDotDayYearAtBegin,
 					separator: 32,
 				},
 				{
 					date:      "20.05.2020 00:00:00",
-					layout:    StampDotDateLongBackwards,
+					layout:    StampDotDateLongYearAtEnd,
 					separator: 32,
 				},
 				{
 					date:      "20.05.20 00:00:00",
-					layout:    StampDotDateBackwards,
+					layout:    StampDotDateYearAtEnd,
 					separator: 32,
 				},
 				{
 					date:      "20.05.2020",
-					layout:    StampDotDayLongBackwards,
+					layout:    StampDotDayLongYearAtEnd,
 					separator: 32,
 				},
 				{
 					date:      "20.05.20",
-					layout:    StampDotDayBackwards,
+					layout:    StampDotDayYearAtEnd,
 					separator: 32,
 				},
 			},
 		},
 	}
-
-	endl := "\r\n"
+	var endl = "\r\n"
 	//fmt.Println([]rune("/-. ")) // Output: [47 45 46 32]
 
 	for testName, test := range tests {
@@ -357,7 +374,7 @@ func TestTryConvertMonthRuToEn(t *testing.T) {
 		},
 	}
 
-	endl := "\r\n"
+	var endl = "\r\n"
 
 	for testName, test := range tests {
 		t.Logf("Running test case %s", testName)
