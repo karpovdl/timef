@@ -1,6 +1,6 @@
 package timef
 
-// List date time variables
+// List of dates in number or string format
 const (
 	StampDashDateLongYearAtBegin = "2006-01-02 15:04:05" // 2006-01-02 15:04:05
 	StampDashDateYearAtBegin     = "06-01-02 15:04:05"   // 06-01-02 15:04:05
@@ -8,25 +8,43 @@ const (
 
 	StampSlashDateLongYearAtBegin = "2006/01/02 15:04:05" // 2006/01/02 15:04:05
 	StampSlashDateYearAtBegin     = "06/01/02 15:04:05"   // 06/01/02 15:04:05
-	StampSlashDayLongYearAtBegin = "2006/01/02"          // 2006/01/02
+	StampSlashDayLongYearAtBegin  = "2006/01/02"          // 2006/01/02
 
 	StampDotDateLongYearAtBegin = "2006.01.02 15:04:05" // 2006.01.02 15:04:05
 	StampDotDateYearAtBegin     = "06.01.02 15:04:05"   // 06.01.02 15:04:05
-	StampDotDayLongYearAtBegin = "2006.01.02"          // 2006.01.02
+	StampDotDayLongYearAtBegin  = "2006.01.02"          // 2006.01.02
 
 	StampDateLongYearAtBegin = "20060102 15:04:05" // 20060102 15:04:05
 	StampDateYearAtBegin     = "060102 15:04:05"   // 060102 15:04:05
 	StampDayLongYearAtBegin  = "20060102"          // 20060102
 
-	StampDashDayYearAtBegin = "06-01-02" // 06-01-02
-	StampTime               = "15:04:05" // 15:04:05
+	StampDashDayYearAtBegin  = "06-01-02" // 06-01-02
+	StampSlashDayYearAtBegin = "06/01/02" // 06/01/02
+	StampDotDayYearAtBegin   = "06.01.02" // 06.01.02
+	StampDayYearAtBegin      = "060102"   // 060102
 
-	StampDotDayYearAtBegin = "06.01.02" // 06.01.02
+	StampDashDateLongYearAtEnd = "02-01-2006 15:04:05" // 02-01-2006 15:04:05
+	StampDashDateYearAtEnd     = "02-01-06 15:04:05"   // 02-01-06 15:04:05
+	StampDashDayLongYearAtEnd  = "02-01-2006"          // 02-01-2006
+
+	StampSlashDateLongYearAtEnd = "02/01/2006 15:04:05" // 02/01/2006 15:04:05
+	StampSlashDateYearAtEnd     = "02/01/06 15:04:05"   // 02/01/06 15:04:05
+	StampSlashDayLongYearAtEnd  = "02/01/2006"          // 02/01/2006
 
 	StampDotDateLongYearAtEnd = "02.01.2006 15:04:05" // 02.01.2006 15:04:05
 	StampDotDateYearAtEnd     = "02.01.06 15:04:05"   // 02.01.06 15:04:05
 	StampDotDayLongYearAtEnd  = "02.01.2006"          // 02.01.2006
-	StampDotDayYearAtEnd      = "02.01.06"            // 02.01.06
+
+	StampDateLongYearAtEnd = "02012006 15:04:05" // 02012006 15:04:05
+	StampDateYearAtEnd     = "020106 15:04:05"   // 020106 15:04:05
+	StampDayLongYearAtEnd  = "02012006"          // 02012006
+
+	StampDashDayYearAtEnd  = "02-01-06" // 02-01-06
+	StampSlashDayYearAtEnd = "02/01/06" // 02/01/06
+	StampDotDayYearAtEnd   = "02.01.06" // 02.01.06
+	StampDayYearAtEnd      = "020106"   // 020106
+
+	StampTime = "15:04:05" // 15:04:05
 
 	StampWordDayLongMonthLongYear = "2 January 2006" // 2 January 2006
 	StampWordDayLongMonthYear     = "2 January 06"   // 2 January 06
@@ -103,19 +121,7 @@ const (
 	FormatDateLongYearAtBegin54 = "YYYYMMDD HH24:MI:SS.FFFFFFFFF"
 )
 
-// Full day format and year at the beginning
-const (
-	// FormatDayLongYearAtBegin1 its YYYY-MM-DD. Complete day.
-	FormatDayLongYearAtBegin1 = "YYYY-MM-DD"
-	// FormatDayLongYearAtBegin2 its YYYY/MM/DD. Complete day.
-	FormatDayLongYearAtBegin2 = "YYYY/MM/DD"
-	// FormatDayLongYearAtBegin3 its YYYY.MM.DD. Complete day.
-	FormatDayLongYearAtBegin3 = "YYYY.MM.DD"
-	// FormatDayLongYearAtBegin4 its YYYYMMDD. Complete day.
-	FormatDayLongYearAtBegin4 = "YYYYMMDD"
-)
-
-// Day format and year at the beginning and timestamp
+// Date format and year at the beginning and timestamp
 const (
 	// FormatDateYearAtBegin11 its YY-MM-DD HH24:MI. Complete date plus hours and minutes.
 	FormatDateYearAtBegin11 = "YY-MM-DD HH24:MI"
@@ -143,6 +149,18 @@ const (
 
 	// FormatDateYearAtBegin51 its YY-MM-DD HH24:MI:SS.FFFFFFFFF. Complete date plus hours, minutes, seconds, nanoseconds.
 	FormatDateYearAtBegin51 = "YY-MM-DD HH24:MI:SS.FFFFFFFFF"
+)
+
+// Full day format and year at the beginning
+const (
+	// FormatDayLongYearAtBegin1 its YYYY-MM-DD. Complete day.
+	FormatDayLongYearAtBegin1 = "YYYY-MM-DD"
+	// FormatDayLongYearAtBegin2 its YYYY/MM/DD. Complete day.
+	FormatDayLongYearAtBegin2 = "YYYY/MM/DD"
+	// FormatDayLongYearAtBegin3 its YYYY.MM.DD. Complete day.
+	FormatDayLongYearAtBegin3 = "YYYY.MM.DD"
+	// FormatDayLongYearAtBegin4 its YYYYMMDD. Complete day.
+	FormatDayLongYearAtBegin4 = "YYYYMMDD"
 )
 
 // Day format and year at the beginning
@@ -203,6 +221,36 @@ const (
 	FormatDateLongYearAtEnd53 = "DD.MM.YYYY HH24:MI:SS.FFFFFFFFF"
 	// FormatDateLongYearAtEnd54 its DDMMYYYY HH24:MI:SS.FFFFFFFFF. Complete date plus hours, minutes, seconds, nanoseconds.
 	FormatDateLongYearAtEnd54 = "DDMMYYYY HH24:MI:SS.FFFFFFFFF"
+)
+
+// Date format and year at the end and timestamp
+const (
+	// FormatDateYearAtEnd11 its DD-MM-YY HH24:MI. Complete date plus hours and minutes.
+	FormatDateYearAtEnd11 = "DD-MM-YY HH24:MI"
+	// FormatDateYearAtEnd12 its DD/MM/YY HH24:MI. Complete date plus hours and minutes.
+	FormatDateYearAtEnd12 = "DD/MM/YY HH24:MI"
+	// FormatDateYearAtEnd13 its DD.MM.YY HH24:MI. Complete date plus hours and minutes.
+	FormatDateYearAtEnd13 = "DD.MM.YY HH24:MI"
+	// FormatDateYearAtEnd14 its DDMMYY HH24:MI. Complete date plus hours and minutes.
+	FormatDateYearAtEnd14 = "DDMMYY HH24:MI"
+
+	// FormatDateYearAtEnd21 its DD-MM-YY HH24:MI:SS. Complete date plus hours and minutes, seconds.
+	FormatDateYearAtEnd21 = "DD-MM-YY HH24:MI:SS"
+	// FormatDateYearAtEnd22 its DD/MM/YY HH24:MI:SS. Complete date plus hours and minutes, seconds.
+	FormatDateYearAtEnd22 = "DD/MM/YY HH24:MI:SS"
+	// FormatDateYearAtEnd23 its DD.MM.YY HH24:MI:SS. Complete date plus hours and minutes, seconds.
+	FormatDateYearAtEnd23 = "DD.MM.YY HH24:MI:SS"
+	// FormatDateYearAtEnd24 its DDMMYY HH24:MI:SS. Complete date plus hours and minutes, seconds.
+	FormatDateYearAtEnd24 = "DDMMYY HH24:MI:SS"
+
+	// FormatDateYearAtEnd31 its DD-MM-YY HH24:MI:SS.FFF. Complete date plus hours, minutes, seconds, milliseconds.
+	FormatDateYearAtEnd31 = "DD-MM-YY HH24:MI:SS.FFF"
+
+	// FormatDateYearAtEnd41 its DD-MM-YY HH24:MI:SS.FFFFFF. Complete date plus hours, minutes, seconds, microseconds.
+	FormatDateYearAtEnd41 = "DD-MM-YY HH24:MI:SS.FFFFFF"
+
+	// FormatDateYearAtEnd51 its DD-MM-YY HH24:MI:SS.FFFFFFFFF. Complete date plus hours, minutes, seconds, nanoseconds.
+	FormatDateYearAtEnd51 = "DD-MM-YY HH24:MI:SS.FFFFFFFFF"
 )
 
 // Full day format and year at the end

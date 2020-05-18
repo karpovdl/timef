@@ -34,13 +34,13 @@ func ToFormat(value, layout, format string) (string, error) {
 func ToYYYYMMDD(day, layout string, separator rune) (string, error) {
 	switch separator {
 	case 45: // "-"
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtBegin1))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtBegin1])
 	case 47: // "/""
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtBegin2))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtBegin2])
 	case 46: // "."
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtBegin3))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtBegin3])
 	case 32: // ""
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtBegin4))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtBegin4])
 	default:
 		return day, nil
 	}
@@ -50,13 +50,13 @@ func ToYYYYMMDD(day, layout string, separator rune) (string, error) {
 func ToYYYYMMDDHHMMSS(date, layout string, separator rune) (string, error) {
 	switch separator {
 	case 45: // "-"
-		return ToFormat(date, layout, GetFormat(FormatDateLongYearAtBegin21))
+		return ToFormat(date, layout, Format[FormatDateLongYearAtBegin21])
 	case 47: // "/""
-		return ToFormat(date, layout, GetFormat(FormatDateLongYearAtBegin22))
+		return ToFormat(date, layout, Format[FormatDateLongYearAtBegin22])
 	case 46: // "."
-		return ToFormat(date, layout, GetFormat(FormatDateLongYearAtBegin23))
+		return ToFormat(date, layout, Format[FormatDateLongYearAtBegin23])
 	case 32: // ""
-		return ToFormat(date, layout, GetFormat(FormatDateLongYearAtBegin24))
+		return ToFormat(date, layout, Format[FormatDateLongYearAtBegin24])
 	default:
 		return date, nil
 	}
@@ -66,81 +66,31 @@ func ToYYYYMMDDHHMMSS(date, layout string, separator rune) (string, error) {
 func ToDDMMYYYY(day, layout string, separator rune) (string, error) {
 	switch separator {
 	case 45: // "-"
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtEnd1))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtEnd1])
 	case 47: // "/""
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtEnd2))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtEnd2])
 	case 46: // "."
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtEnd3))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtEnd3])
 	case 32: // ""
-		return ToFormat(day, layout, GetFormat(FormatDayLongYearAtEnd4))
+		return ToFormat(day, layout, Format[FormatDayLongYearAtEnd4])
 	default:
 		return day, nil
 	}
 }
 
-// GetFormat get a predefined format
-func GetFormat(format string) string {
-	switch format {
-	case FormatDateLongYearAtBegin11:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute}, ":")
-	case FormatDateLongYearAtBegin21:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":")
-	case FormatDateLongYearAtBegin31:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Milli
-	case FormatDateLongYearAtBegin41:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Micro
-	case FormatDateLongYearAtBegin51:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Nano
-
-	case FormatDateYearAtBegin11:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute}, ":")
-	case FormatDateYearAtBegin21:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":")
-	case FormatDateYearAtBegin31:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Milli
-	case FormatDateYearAtBegin41:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Micro
-	case FormatDateYearAtBegin51:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-") + " " + strings.Join([]string{Hour, ZeroMinute, ZeroSecond}, ":") + "." + Nano
-
-	case FormatDayLongYearAtBegin1:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "-")
-	case FormatDayLongYearAtBegin2:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "/")
-	case FormatDayLongYearAtBegin3:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, ".")
-	case FormatDayLongYearAtBegin4:
-		return strings.Join([]string{LongYear, ZeroMonth, ZeroDay}, "")
-
-	case FormatDayYearAtBegin1:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "-")
-	case FormatDayYearAtBegin2:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "/")
-	case FormatDayYearAtBegin3:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, ".")
-	case FormatDayYearAtBegin4:
-		return strings.Join([]string{Year, ZeroMonth, ZeroDay}, "")
-
-	case FormatDayLongYearAtEnd1:
-		return strings.Join([]string{ZeroDay, ZeroMonth, LongYear}, "-")
-	case FormatDayLongYearAtEnd2:
-		return strings.Join([]string{ZeroDay, ZeroMonth, LongYear}, "/")
-	case FormatDayLongYearAtEnd3:
-		return strings.Join([]string{ZeroDay, ZeroMonth, LongYear}, ".")
-	case FormatDayLongYearAtEnd4:
-		return strings.Join([]string{ZeroDay, ZeroMonth, LongYear}, "")
-
-	case FormatDayYearAtEnd1:
-		return strings.Join([]string{ZeroDay, ZeroMonth, Year}, "-")
-	case FormatDayYearAtEnd2:
-		return strings.Join([]string{ZeroDay, ZeroMonth, Year}, "/")
-	case FormatDayYearAtEnd3:
-		return strings.Join([]string{ZeroDay, ZeroMonth, Year}, ".")
-	case FormatDayYearAtEnd4:
-		return strings.Join([]string{ZeroDay, ZeroMonth, Year}, "")
-
+// ToDDMMYYYYHHMMSS convert to DD-MM-YYYY HH24:MI:SS or DD/MM/YYYY HH24:MI:SS or DD.MM.YYYY HI:MM:SS or DDMMYYYY HH24:MI:SS
+func ToDDMMYYYYHHMMSS(date, layout string, separator rune) (string, error) {
+	switch separator {
+	case 45: // "-"
+		return ToFormat(date, layout, Format[FormatDateLongYearAtEnd21])
+	case 47: // "/""
+		return ToFormat(date, layout, Format[FormatDateLongYearAtEnd22])
+	case 46: // "."
+		return ToFormat(date, layout, Format[FormatDateLongYearAtEnd23])
+	case 32: // ""
+		return ToFormat(date, layout, Format[FormatDateLongYearAtEnd24])
 	default:
-		return ""
+		return date, nil
 	}
 }
 

@@ -16,55 +16,55 @@ func TestToFormat(t *testing.T) {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020-05-20 00:00:00",
 			layout:    StampDashDateLongYearAtBegin,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_2020/05/20_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020/05/20 00:00:00",
 			layout:    StampSlashDateLongYearAtBegin,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_2020.05.20_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020.05.20 00:00:00",
 			layout:    StampDotDateLongYearAtBegin,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_20200520_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20200520 00:00:00",
 			layout:    StampDateLongYearAtBegin,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_2020-05-20": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "2020-05-20",
 			layout:    StampDashDayLongYearAtBegin,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_20.05.2020": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.2020",
 			layout:    StampDotDayLongYearAtEnd,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_20.05.2020_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.2020 00:00:00",
 			layout:    StampDotDateLongYearAtEnd,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_20.05.20_00:00:00": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.20 00:00:00",
 			layout:    StampDotDateYearAtEnd,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 		"date_20.05.20": {
 			prototype: "2020-05-20 00:00:00",
 			date:      "20.05.20",
 			layout:    StampDotDayYearAtEnd,
-			format:    GetFormat(FormatDateLongYearAtBegin21),
+			format:    Format[FormatDateLongYearAtBegin21],
 		},
 	}
 
@@ -341,6 +341,259 @@ func TestToFormatYYYYMMDD(t *testing.T) {
 	}
 }
 
+func TestToFormatDDMMYYYY(t *testing.T) {
+	var tests = map[string]struct {
+		prototype string
+		datas     []struct {
+			date      string
+			layout    string
+			separator rune
+		}
+	}{
+		"date_20-05-2020": {
+			prototype: "20-05-2020",
+			datas: []struct {
+				date      string
+				layout    string
+				separator rune
+			}{
+				{
+					date:      "20-05-2020 00:00:00",
+					layout:    StampDashDateLongYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "20-05-2020",
+					layout:    StampDashDayLongYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "20-05-20",
+					layout:    StampDashDayYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "20.05.2020",
+					layout:    StampDotDayLongYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "2020.05.20 00:00:00",
+					layout:    StampDotDateLongYearAtBegin,
+					separator: '-',
+				},
+				{
+					date:      "20.05.20 00:00:00",
+					layout:    StampDotDateYearAtEnd,
+					separator: '-',
+				},
+				{
+					date:      "2020.05.20",
+					layout:    StampDotDayLongYearAtBegin,
+					separator: '-',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtBegin,
+					separator: '-',
+				},
+			},
+		},
+
+		"date_20/05/2020": {
+			prototype: "20/05/2020",
+			datas: []struct {
+				date      string
+				layout    string
+				separator rune
+			}{
+				{
+					date:      "20-05-2020 00:00:00",
+					layout:    StampDashDateLongYearAtEnd,
+					separator: '/',
+				},
+				{
+					date:      "20-05-2020",
+					layout:    StampDashDayLongYearAtEnd,
+					separator: '/',
+				},
+				{
+					date:      "20-05-20",
+					layout:    StampDashDayYearAtEnd,
+					separator: '/',
+				},
+				{
+					date:      "20.05.2020",
+					layout:    StampDotDayLongYearAtEnd,
+					separator: '/',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtEnd,
+					separator: '/',
+				},
+				{
+					date:      "2020.05.20 00:00:00",
+					layout:    StampDotDateLongYearAtBegin,
+					separator: '/',
+				},
+				{
+					date:      "20.05.20 00:00:00",
+					layout:    StampDotDateYearAtBegin,
+					separator: '/',
+				},
+				{
+					date:      "2020.05.20",
+					layout:    StampDotDayLongYearAtBegin,
+					separator: '/',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtBegin,
+					separator: '/',
+				},
+			},
+		},
+
+		"date_20.05.2020": {
+			prototype: "20.05.2020",
+			datas: []struct {
+				date      string
+				layout    string
+				separator rune
+			}{
+				{
+					date:      "20-05-2020 00:00:00",
+					layout:    StampDashDateLongYearAtEnd,
+					separator: '.',
+				},
+				{
+					date:      "20-05-2020",
+					layout:    StampDashDayLongYearAtEnd,
+					separator: '.',
+				},
+				{
+					date:      "20-05-20",
+					layout:    StampDashDayYearAtEnd,
+					separator: '.',
+				},
+				{
+					date:      "20.05.2020",
+					layout:    StampDotDayLongYearAtEnd,
+					separator: '.',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtEnd,
+					separator: '.',
+				},
+				{
+					date:      "2020.05.20 00:00:00",
+					layout:    StampDotDateLongYearAtBegin,
+					separator: '.',
+				},
+				{
+					date:      "20.05.20 00:00:00",
+					layout:    StampDotDateYearAtBegin,
+					separator: '.',
+				},
+				{
+					date:      "2020.05.20",
+					layout:    StampDotDayLongYearAtBegin,
+					separator: '.',
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtBegin,
+					separator: '.',
+				},
+			},
+		},
+
+		"date_20052020": {
+			prototype: "20052020",
+			datas: []struct {
+				date      string
+				layout    string
+				separator rune
+			}{
+				{
+					date:      "20-05-2020 00:00:00",
+					layout:    StampDashDateLongYearAtEnd,
+					separator: 32,
+				},
+				{
+					date:      "20-05-2020",
+					layout:    StampDashDayLongYearAtEnd,
+					separator: 32,
+				},
+				{
+					date:      "20-05-20",
+					layout:    StampDashDayYearAtEnd,
+					separator: 32,
+				},
+				{
+					date:      "20.05.2020",
+					layout:    StampDotDayLongYearAtEnd,
+					separator: 32,
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtEnd,
+					separator: 32,
+				},
+				{
+					date:      "2020.05.20 00:00:00",
+					layout:    StampDotDateLongYearAtBegin,
+					separator: 32,
+				},
+				{
+					date:      "20.05.20 00:00:00",
+					layout:    StampDotDateYearAtBegin,
+					separator: 32,
+				},
+				{
+					date:      "2020.05.20",
+					layout:    StampDotDayLongYearAtBegin,
+					separator: 32,
+				},
+				{
+					date:      "20.05.20",
+					layout:    StampDotDayYearAtBegin,
+					separator: 32,
+				},
+			},
+		},
+	}
+	var endl = "\r\n"
+	//fmt.Println([]rune("/-. ")) // Output: [47 45 46 32]
+
+	for testName, test := range tests {
+		t.Logf("Running test case %s", testName)
+
+		prototype := test.prototype
+
+		for _, data := range test.datas {
+			date := data.date
+			layout := data.layout
+			separator := data.separator
+
+			if parseDate, err := ToDDMMYYYY(date, layout, separator); err != nil || parseDate == "" || parseDate != prototype {
+				if err != nil {
+					t.Error("ERROR PARSING", endl, "PROTOTYPE:", prototype, endl, "DATE:", parseDate, endl, "ERROR:", err)
+				} else {
+					t.Error("ERROR PARSING", endl, "PROTOTYPE:", prototype, endl, "DATE:", parseDate)
+				}
+			}
+		}
+	}
+}
+
 func TestTryConvertMonthRuToEn(t *testing.T) {
 	tests := map[string]struct {
 		prototype string
@@ -355,6 +608,7 @@ func TestTryConvertMonthRuToEn(t *testing.T) {
 				"января",
 				"январю",
 				"январем",
+				"январЁм",
 				"январе",
 			},
 		},
@@ -382,8 +636,16 @@ func TestTryConvertMonthRuToEn(t *testing.T) {
 		prototype := test.prototype
 		for _, month := range test.months {
 			if parseMonth, ok := TryConvertMonthRuToEn(month); !ok || parseMonth == "" || parseMonth != prototype {
-				t.Error("ERROR PARSING", endl, "PROTOTYPE:", prototype, endl, "DATE:", parseMonth)
+				t.Error("ERROR PARSING", endl, "PROTOTYPE:", prototype, endl, "MONTH:", parseMonth)
 			}
 		}
+	}
+
+	if parseMonth, ok := TryConvertMonthRuToEn(""); ok || parseMonth != "" {
+		t.Error("ERROR PARSING", endl, "MONTH IS NOT NULL:", parseMonth)
+	}
+
+	if parseMonth, ok := TryConvertMonthRuToEn("NONE_MONTH"); ok || parseMonth != "" {
+		t.Error("ERROR PARSING", endl, "MONTH IS NOT NULL:", parseMonth)
 	}
 }
