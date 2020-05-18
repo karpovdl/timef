@@ -8,6 +8,8 @@
 [3]: https://img.shields.io/github/downloads/karpovdl/timef/total.svg "All releases badge"
 [4]: https://github.com/karpovdl/timef/releases "All releases number"
 
+[![](resource/timef.png)](https://github.com/karpovdl/timef)
+
 The package contains a set of methods for casting dates from one view to another.
 
 ## Sample
