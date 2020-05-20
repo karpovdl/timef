@@ -1,6 +1,8 @@
 # timef
 
-[![codebeat][1]][2] [![Downloads][3]][4]
+![][0] [![codebeat][1]][2] [![Downloads][3]][4]
+
+[0]: https://img.shields.io/badge/license-MIT-blue.svg "License"
 
 [1]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "Codebeat badge"
 [2]: https://codebeat.co/projects/github-com-karpovdl-timef-master "Codebeat"
