@@ -1,14 +1,10 @@
 # timef
 
-![][0] [![codebeat][1]][2] [![Downloads][3]][4]
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&maxAge=86400)](./LICENSE)
+[![codebeat][1]][2]
 
-[0]: https://img.shields.io/badge/license-MIT-blue.svg "License"
-
-[1]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "Codebeat badge"
+[1]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "Codebeat"
 [2]: https://codebeat.co/projects/github-com-karpovdl-timef-master "Codebeat"
-
-[3]: https://img.shields.io/github/downloads/karpovdl/timef/total.svg "All releases badge"
-[4]: https://github.com/karpovdl/timef/releases "All releases number"
 
 [![](resource/timef.png)](https://github.com/karpovdl/timef)
 
