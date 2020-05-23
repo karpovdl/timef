@@ -1,13 +1,18 @@
 # timef
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&maxAge=86400)](./LICENSE)
-[![codebeat][1]][2] [![codefactor][3]][4]
+[![License][1]][2] [![golang][10]][11] [![codebeat][20]][21] [![CodeFactor][22]][23] 
 
-[1]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "Codebeat"
-[2]: https://codebeat.co/projects/github-com-karpovdl-timef-master "Codebeat"
+[1]: https://img.shields.io/badge/license-MIT-blue.svg?label=License&maxAge=86400 "License"
+[2]: ./LICENSE
 
-[3]: https://www.codefactor.io/repository/github/karpovdl/timef/badge "CodeFactor"
-[4]: https://www.codefactor.io/repository/github/karpovdl/timef "CodeFactor"
+[10]: https://img.shields.io/badge/golang-1.14.2-blue.svg?style=flat "Golang"
+[11]: https://golang.org
+
+[20]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "CODEBEAT"
+[21]: https://codebeat.co/projects/github-com-karpovdl-timef-master
+
+[22]: https://www.codefactor.io/repository/github/karpovdl/timef/badge "CodeFactor"
+[23]: https://www.codefactor.io/repository/github/karpovdl/timef
 
 [![](resource/timef.png)](https://github.com/karpovdl/timef)
 
