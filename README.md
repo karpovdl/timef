@@ -25,7 +25,7 @@ The package contains a set of methods for casting dates from one view to another
 
 An example of working with the method **ToFormat**.
 
-```
+```go
 // 2020-05-20 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 2020-05-20 00:00:00
@@ -36,7 +36,7 @@ outputDate, _ := timef.ToFormat("2020-05-20 00:00:00", timef.StampDashDateLongYe
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 2020/05/20 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 2020/05/20 00:00:00
@@ -47,7 +47,7 @@ outputDate, _ := timef.ToFormat("2020/05/20 00:00:00", timef.StampSlashDateLongY
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 2020.05.20 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 2020.05.20 00:00:00
@@ -58,7 +58,7 @@ outputDate, _ := timef.ToFormat("2020.05.20 00:00:00", timef.StampDotDateLongYea
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 20200520 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 20200520 00:00:00
@@ -69,7 +69,7 @@ outputDate, _ := timef.ToFormat("20200520 00:00:00", timef.StampDateLongYearAtBe
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 20.05.2020 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 20.05.2020 00:00:00
@@ -80,7 +80,7 @@ outputDate, _ := timef.ToFormat("20.05.2020 00:00:00", timef.StampDotDateLongYea
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 20.05.20 00:00:00 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 20.05.20 00:00:00
@@ -91,7 +91,7 @@ outputDate, _ := timef.ToFormat("20.05.20 00:00:00", timef.StampDotDateYearAtEnd
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 2020-05-20 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 2020-05-20
@@ -102,7 +102,7 @@ outputDate, _ := timef.ToFormat("2020-05-20", timef.StampDashDayLongYearAtBegin,
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 20.05.2020 -> 2020-05-20 00:00:00 
 // Input date string
 // > value: 20.05.2020
@@ -113,7 +113,7 @@ outputDate, _ := timef.ToFormat("20.05.2020", timef.StampDotDayLongYearAtEnd, ti
 // > value: 2020-05-20 00:00:00
 ```
 
-```
+```go
 // 20.05.20 -> 2020-05-20 00:00:00
 // Input date string
 // > value: 20.05.20
