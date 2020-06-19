@@ -29,4 +29,3 @@ func TestFormat(t *testing.T) {
 		}
 	}
 }
-

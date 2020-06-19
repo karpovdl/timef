@@ -5,7 +5,7 @@
 [1]: https://img.shields.io/badge/license-MIT-blue.svg?label=License&maxAge=86400 "License"
 [2]: ./LICENSE
 
-[10]: https://img.shields.io/badge/golang-1.14.2-blue.svg?style=flat "Golang"
+[10]: https://img.shields.io/badge/golang-1.14.4-blue.svg?style=flat "Golang"
 [11]: https://golang.org
 
 [20]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "CODEBEAT"
@@ -13,6 +13,9 @@
 
 [22]: https://www.codefactor.io/repository/github/karpovdl/timef/badge "CodeFactor"
 [23]: https://www.codefactor.io/repository/github/karpovdl/timef
+
+:green_book: [Samples](./SAMPLES.md)
+:green_book: [Tests](./TESTS.md)
 
 [![](resource/timef.png)](https://github.com/karpovdl/timef)
 
